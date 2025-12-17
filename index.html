@@ -3350,24 +3350,24 @@ const RAW_HTML_GGSOFTSLOT = `
 // ============================================
 
         const PROVIDERS = [
-    { key: 'advant', name: 'ADVANT', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/advant.png?q=75' },
-    { key: 'pragmaticslots', name: 'PRAGMATICS', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/pragmatic-slots.png?q=75' },
+    { key: 'pragmaticslots', name: 'PRAGMATIC', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/pragmatic-slots.png?q=75' },
+    { key: 'pg', name: 'PG SOFT', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/pg.png?q=75' },
     { key: 'habaneroslot', name: 'HABANERO', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/habanero-slot.png?q=75' },
-    { key: 'redtiger2slot', name: 'REDTIGER2', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/redtiger2-slot.png?q=75' },
+    { key: 'redtiger2slot', name: 'RED TIGER', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/redtiger2-slot.png?q=75' },
     { key: 'microgamingslot', name: 'MICROGAMING', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/microgaming-slot.png?q=75' },
-    { key: 'netent2slot', name: 'NETENT2', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/netent2-slot.png?q=75' },
-    { key: 'pg', name: 'PG', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/pg.png?q=75' },
-    { key: 'xinnew', name: 'XIN-NEW', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/xin-new.png?q=75' },
-    { key: 'spadeslot', name: 'SPADE', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/spade-slot.png?q=75' },
+    { key: 'ygg', name: 'YGGDRASIL', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/ygg.png?q=75' },
+    { key: 'netent2slot', name: 'NETENT', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/netent2-slot.png?q=75' },
     { key: 'cq9slot', name: 'CQ9', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/cq9-slot.png?q=75' },
-    { key: 'ygg', name: 'YGG', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/ygg.png?q=75' },
-    { key: 'nolimitcity2slot', name: 'NOLIMITCITY2', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/nolimitcity2-slot.png?q=75' },
+    { key: 'spadeslot', name: 'SPADE', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/spade-slot.png?q=75' },
+    { key: 'pegasusxslot', name: 'PEGASUS', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/pegasusx-slot.png?q=75' },
+    { key: 'xinnew', name: 'XIN GAMING', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/xin-new.png?q=75' },
+    { key: 'nolimitcity2slot', name: 'NOLIMIT', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/nolimitcity2-slot.png?q=75' },
     { key: 'jilislot', name: 'JILI', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/jili-slot.png?q=75' },
+    { key: 'advant', name: 'ADVANT', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/advant.png?q=75' },
     { key: 'megawinslot', name: 'MEGAWIN', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/megawin-slot.png?q=75' },
-    { key: 'ssgslot', name: 'SSG', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/ssg-slot.png?q=75' },
-    { key: 'pegasusxslot', name: 'PEGASUSX', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/pegasusx-slot.png?q=75' },
-    { key: 'fatpandaslots', name: 'FATPANDAS', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/fatpanda-slots.png?q=75' },
     { key: '5gslot', name: '5G', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/5g-slot.png?q=75' },
+    { key: 'fatpandaslots', name: 'FAT PANDA', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/fatpanda-slots.png?q=75' },
+    { key: 'ssgslot', name: 'SSG', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/ssg-slot.png?q=75' },
     { key: 'ggsoftslot', name: 'GGSOFT', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/ggsoft-slot.png?q=75' },
 ];
 
@@ -3689,7 +3689,7 @@ allGames['ggsoftslot'] = parseHTMLToGames(RAW_HTML_GGSOFTSLOT, 'ggsoftslot');
             });
 
             renderProviderTabs();
-            switchProvider('pragmatic'); 
+            switchProvider('pragmaticslots'); 
 
             setInterval(refreshRTPData, 1800000);
         });
