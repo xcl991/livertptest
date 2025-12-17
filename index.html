@@ -3383,8 +3383,15 @@ const RAW_HTML_GGSOFTSLOT = `
     { key: 'ggsoftslot', name: 'GGSOFT', logo: 'https://dataset.catgarong.com/assets/images/static/slot/icons/ggsoft-slot.png?q=75' },
 ];
 
+        // ============================================
+        // 🔗 CENTRALIZED LINKS - UPDATE HERE ONLY!
+        // ============================================
+        // Semua CTA button akan menggunakan link dari sini.
+        // Cukup update sekali di bawah ini untuk mengubah semua link di website.
+
         const ASSETS = {
-            linkUtama: "https://t.ly/Yae-P7",
+            linkUtama: "https://t.ly/Yae-P7",        // 👈 UPDATE LINK UTAMA DI SINI
+            linkLivechat: "https://t.ly/PG77_LC",    // 👈 UPDATE LINK LIVECHAT DI SINI
             banners: [
                 "https://cdn.databerjalan.com/cdn-cgi/image/width=auto,quality=75,fit=contain,format=auto/assets/images/store/2025-06-10T09:46:11.689Z_photo_6215068070066637463_y.jpg",
                 "https://cdn.databerjalan.com/cdn-cgi/image/width=auto,quality=75,fit=contain,format=auto/assets/images/store/2023-12-07T12:03:25.681Z_LUCKYSPIN_HP.jpg",
@@ -3682,6 +3689,25 @@ allGames['pegasusxslot'] = parseHTMLToGames(RAW_HTML_PEGASUSXSLOT, 'pegasusxslot
 allGames['fatpandaslots'] = parseHTMLToGames(RAW_HTML_FATPANDASLOTS, 'fatpandaslots');
 allGames['5gslot'] = parseHTMLToGames(RAW_HTML_5GSLOT, '5gslot');
 allGames['ggsoftslot'] = parseHTMLToGames(RAW_HTML_GGSOFTSLOT, 'ggsoftslot');
+
+            // ============================================
+            // Update all CTA links from centralized ASSETS
+            // ============================================
+            const updateAllLinks = () => {
+                // Update all main CTA links (header, mobile menu, floating buttons)
+                document.querySelectorAll('a[href="https://t.ly/Yae-P7"]').forEach(link => {
+                    link.href = ASSETS.linkUtama;
+                });
+
+                // Update livechat link
+                document.querySelectorAll('a[href="https://t.ly/PG77_LC"]').forEach(link => {
+                    link.href = ASSETS.linkLivechat;
+                });
+
+                console.log('✅ All CTA links updated from ASSETS configuration');
+            };
+
+            updateAllLinks();
 
             setupBannerSlider();
 
