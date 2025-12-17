@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEGASUSPLAY77 | Prediksi Togel Akurat Terbaru Hari Ini</title>
+    <link rel="icon" type="image/png" href="https://cdn.databerjalan.com/assets/images/companies/pegasusplay77/pegasusplay77-favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Background Utama: Gradasi Ungu Gelap */
+        body {
+            background: linear-gradient(135deg, #0f0520 0%, #1a0a33 50%, #0f0520 100%);
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        /* Kartu Pasaran: Efek Shadow & Gradasi */
+        .market-card {
+            background: linear-gradient(145deg, #2c144b 0%, #3e2060 100%);
+            border: 1px solid #6b21a8; 
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease-in-out;
+        }
+        .market-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(109, 40, 217, 0.4);
+        }
+        /* Box Angka Prediksi */
+        .prediction-box {
+            background-color: #4c1d95; 
+            border-radius: 6px;
+            padding: 8px;
+            font-weight: bold;
+            text-align: center;
+            color: #ffc107; 
+            border: 1px solid #facc1550; 
+        }
+        /* Box Shio Kuat */
+        .shio-box {
+            background: linear-gradient(135deg, #991b1b, #b91c1c, #dc2626); 
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: extra-bold;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.6);
+            letter-spacing: 2px;
+        }
+        /* Style untuk Angka Jitu 4D */
+        .angka-jitu {
+            text-shadow: 0 0 15px rgba(251, 191, 36, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app" class="min-h-screen pb-24">
+        
+        <header class="fixed top-0 w-full z-50 bg-gradient-to-b from-[#1a0a33]/95 to-[#0f0520]/80 backdrop-blur-xl border-b border-purple-500/20 shadow-2xl">
+            <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+                <a href="./index.html">
+                    <img src="https://cdn.databerjalan.com/cdn-cgi/image/width=auto,quality=75,fit=contain,format=auto/assets/images/store/2022-04-27T10:40:58.909Z_Untitled6.gif" alt="PEGASUSPLAY77" class="h-10 md:h-12 object-contain hover:scale-110 transition cursor-pointer drop-shadow-lg">
+                </a>
+                <h1 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400 uppercase pt-2"></h1>
+                <a href="../" class="px-4 py-2 rounded-full bg-gradient-to-r from-red-600 to-red-800 text-xs font-bold text-white shadow-lg hover:shadow-[0_0_15px_rgba(220,38,38,0.8)] transition">RTP SLOT</a>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-4 py-24">
+            
+            <div class="text-center mb-10">
+                <p class="text-lg font-bold text-purple-300">HARI INI: <span id="current-date" class="text-amber-400"></span></p>
+            </div>
+
+            <div class="text-center mb-10">
+                <a href="https://t.ly/Yae-P7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-10 py-4 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-lg font-black text-gray-900 shadow-[0_0_25px_rgba(251,191,36,0.8)] hover:shadow-[0_0_35px_rgba(251,191,36,1)] hover:-translate-y-1 transition transform scale-105">
+                    <span data-lucide="zap" class="w-6 h-6 mr-2 fill-yellow-900"></span>
+                    PASANG SEKARANG
+                </a>
+            </div>
+
+            <div id="prediction-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const today = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = today.toLocaleDateString('id-ID', dateOptions).toUpperCase();
+
+            loadPredictions();
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            setInterval(loadPredictions, 3600000); 
+        });
+
+
+        const PASARAN_TOGEL = [
+
+            { name: 'HONGKONG', flag: 'https://flagcdn.com/w40/hk.png', offset: 5891, libur: [] }, 
+
+            { name: 'SINGAPORE', flag: 'https://flagcdn.com/w40/sg.png', offset: 7244, libur: ['Selasa', 'Jumat'] },
+
+            { name: 'SYDNEY', flag: 'https://flagcdn.com/w40/au.png', offset: 9378, libur: [] } 
+        ];
+        const SHIO_NAMES = ["TIKUS", "KERBAU", "MACAN", "KELINCI", "NAGA", "ULAR", "KUDA", "KAMBING", "MONYET", "AYAM", "ANJING", "BABI"];
+
+
+        const getDateSeed = () => {
+            const today = new Date();
+            const y = today.getFullYear();
+            const m = String(today.getMonth() + 1).padStart(2, '0');
+            const d = String(today.getDate()).padStart(2, '0');
+            let seedString = `${y}${m}${d}`;
+            let hash = 0;
+            for (let i = 0; i < seedString.length; i++) {
+                hash = ((hash << 5) - hash) + seedString.charCodeAt(i);
+                hash |= 0; 
+            }
+            return Math.abs(hash) + 1; 
+        };
+
+        const generatePredictionData = (initialSeed) => {
+            let currentSeed = initialSeed;
+            const P = 4294967296; 
+
+            const nextRandom = () => {
+                currentSeed = (currentSeed * 1664525 + 1013904223) % P;
+                return currentSeed / P;
+            };
+
+            const nextDigit = () => Math.floor(nextRandom() * 10);
+            
+            const generateNumber = (length) => {
+                let result = '';
+                for (let i = 0; i < length; i++) {
+                    result += nextDigit();
+                }
+                return result;
+            };
+
+            const getElement = (arr) => {
+                const index = Math.floor(nextRandom() * arr.length);
+                return arr[index];
+            };
+
+            const getAngkaJitu4D = () => generateNumber(4);
+
+            const getColokBebas = () => {
+                let num1 = nextDigit();
+                let num2 = nextDigit();
+                while (num2 === num1) {
+                    num2 = nextDigit(); 
+                }
+                return `${num1} & ${num2}`;
+            };
+
+            const getDasar = () => getElement(['KECIL / GENAP', 'BESAR / GANJIL', 'KECIL / GANJIL', 'BESAR / GENAP']);
+
+            const getBBFS = () => {
+                let numbers = [];
+                while(numbers.length < 7){
+                    const num = nextDigit();
+                    if(numbers.indexOf(num) === -1) numbers.push(num);
+                }
+                return numbers.join('');
+            };
+
+            const getShioKuat = () => getElement(SHIO_NAMES);
+
+            const getTop2D = () => {
+                let numbers = [];
+                while(numbers.length < 8){
+                    const num = String(Math.floor(nextRandom() * 100)).padStart(2, '0');
+                    if(numbers.indexOf(num) === -1) numbers.push(num);
+                }
+                return numbers;
+            };
+
+            const getTop3D = () => {
+                let numbers = [];
+                while(numbers.length < 3){
+                    const num = String(Math.floor(nextRandom() * 1000)).padStart(3, '0');
+                    if(numbers.indexOf(num) === -1) numbers.push(num);
+                }
+                return numbers;
+            };
+            
+            return {
+                angkaJitu4D: getAngkaJitu4D(),
+                colokBebas: getColokBebas(),
+                dasar: getDasar(),
+                bbfs: getBBFS(),
+                shioKuat: getShioKuat(),
+                top2D: getTop2D(),
+                top3D: getTop3D()
+            };
+        };
+
+
+        const loadPredictions = () => {
+            const container = document.getElementById('prediction-container');
+            const today = new Date();
+            const dayName = today.toLocaleDateString('id-ID', { weekday: 'long' });
+            
+            const dailySeed = getDateSeed(); 
+
+            container.innerHTML = PASARAN_TOGEL.map(pasaran => {
+                const isLibur = pasaran.libur.includes(dayName);
+                
+                const finalSeed = dailySeed + pasaran.offset;
+
+                const predictionData = generatePredictionData(finalSeed);
+
+                return `
+                    <div class="market-card rounded-xl p-6 flex flex-col h-full ${isLibur ? 'opacity-40 grayscale' : ''}">
+                        
+                        <div class="flex items-center justify-center mb-6">
+                            <img src="${pasaran.flag}" alt="${pasaran.name} Flag" class="w-8 h-8 rounded-full mr-3 border-2 border-amber-400 p-0.5 object-cover">
+                            <h2 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400 uppercase tracking-wider">${pasaran.name}</h2>
+                        </div>
+
+                        ${isLibur ? `
+                            <div class="text-center py-16 flex-grow flex flex-col justify-center">
+                                <p class="text-3xl font-black text-red-500 mb-3">TUTUP SEMENTARA</p>
+                                <p class="text-base text-red-300">Pasaran LIBUR Setiap Hari ${pasaran.libur.join(' & ')}</p>
+                            </div>
+                        ` : `
+                            <div class="text-center mb-6">
+                                <p class="text-sm font-bold text-purple-300 mb-2">ANGKA JITU 4D (BB)</p>
+                                <p class="text-6xl font-black text-amber-400 tracking-[0.3em] angka-jitu">${predictionData.angkaJitu4D}</p>
+                            </div>
+
+                            <div class="mb-6">
+                                <p class="text-xs font-bold text-purple-300 mb-1 text-center">SHIO KUAT HARI INI</p>
+                                <div class="shio-box">${predictionData.shioKuat}</div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-xs font-bold text-purple-300 mb-1 text-center">COLOK BEBAS</p>
+                                    <div class="prediction-box">${predictionData.colokBebas}</div>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-purple-300 mb-1 text-center">DASAR</p>
+                                    <div class="prediction-box">${predictionData.dasar}</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <p class="text-xs font-bold text-purple-300 mb-1 text-center">BBFS (BOLAK BALIK FULL SET)</p>
+                                <div class="prediction-box text-lg tracking-wider">${predictionData.bbfs}</div>
+                            </div>
+
+                            <div class="mb-6">
+                                <p class="text-xs font-bold text-purple-300 mb-2 text-center">TOP 2D BOLAK BALIK</p>
+                                <div class="grid grid-cols-4 gap-2">
+                                    ${predictionData.top2D.map(num => `<div class="prediction-box text-sm">${num}</div>`).join('')}
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <p class="text-xs font-bold text-purple-300 mb-2 text-center">TOP 3D BOLAK BALIK</p>
+                                <div class="grid grid-cols-3 gap-2">
+                                    ${predictionData.top3D.map(num => `<div class="prediction-box text-sm">${num}</div>`).join('')}
+                                </div>
+                            </div>
+							
+            <div class="text-center mb-10">
+                <a href="https://t.ly/Yae-P7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-10 py-4 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-lg font-black text-gray-900 shadow-[0_0_25px_rgba(251,191,36,0.8)] hover:shadow-[0_0_35px_rgba(251,191,36,1)] hover:-translate-y-1 transition transform scale-105">
+                    <span data-lucide="zap" class="w-6 h-6 mr-2 fill-yellow-900"></span>
+                    PASANG SEKARANG
+                </a>
+            </div>
+                        `}
+                    </div>
+                `;
+            }).join('');
+        };
+    </script>
+</body>
+</html>
