@@ -8,36 +8,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Background Utama: Gradasi Ungu Gelap */
+        /* Background Utama: Gradasi Merah Gelap */
         body {
-            background: linear-gradient(135deg, #0f0520 0%, #1a0a33 50%, #0f0520 100%);
+            background: linear-gradient(135deg, #200f0f 0%, #331a1a 50%, #200f0f 100%);
             color: white;
             font-family: 'Inter', sans-serif;
         }
         /* Kartu Pasaran: Efek Shadow & Gradasi */
         .market-card {
-            background: linear-gradient(145deg, #2c144b 0%, #3e2060 100%);
-            border: 1px solid #6b21a8; 
+            background: linear-gradient(145deg, #4b1414 0%, #602020 100%);
+            border: 1px solid #dc2626;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
             transition: transform 0.3s ease-in-out;
         }
         .market-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(109, 40, 217, 0.4);
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.4);
         }
         /* Box Angka Prediksi */
         .prediction-box {
-            background-color: #4c1d95; 
+            background-color: #7f1d1d;
             border-radius: 6px;
             padding: 8px;
             font-weight: bold;
             text-align: center;
-            color: #ffc107; 
-            border: 1px solid #facc1550; 
+            color: #ffc107;
+            border: 1px solid #facc1550;
         }
         /* Box Shio Kuat */
         .shio-box {
-            background: linear-gradient(135deg, #991b1b, #b91c1c, #dc2626); 
+            background: linear-gradient(135deg, #991b1b, #b91c1c, #dc2626);
             color: white;
             padding: 12px;
             border-radius: 8px;
@@ -57,12 +57,12 @@
 
     <div id="app" class="min-h-screen pb-24">
         
-        <header class="fixed top-0 w-full z-50 bg-gradient-to-b from-[#1a0a33]/95 to-[#0f0520]/80 backdrop-blur-xl border-b border-purple-500/20 shadow-2xl">
+        <header class="fixed top-0 w-full z-50 bg-gradient-to-b from-[#331a1a]/95 to-[#200f0f]/80 backdrop-blur-xl border-b border-red-500/20 shadow-2xl">
             <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
                 <a href="./index.html">
                     <img src="https://cdn.databerjalan.com/cdn-cgi/image/width=auto,quality=75,fit=contain,format=auto/assets/images/store/2022-04-27T10:40:58.909Z_Untitled6.gif" alt="PEGASUSPLAY77" class="h-10 md:h-12 object-contain hover:scale-110 transition cursor-pointer drop-shadow-lg">
                 </a>
-                <h1 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400 uppercase pt-2"></h1>
+                <h1 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-amber-400 uppercase pt-2"></h1>
                 <a href="../" class="px-4 py-2 rounded-full bg-gradient-to-r from-red-600 to-red-800 text-xs font-bold text-white shadow-lg hover:shadow-[0_0_15px_rgba(220,38,38,0.8)] transition">RTP SLOT</a>
             </div>
         </header>
@@ -70,7 +70,7 @@
         <main class="max-w-7xl mx-auto px-4 py-24">
             
             <div class="text-center mb-10">
-                <p class="text-lg font-bold text-purple-300">HARI INI: <span id="current-date" class="text-amber-400"></span></p>
+                <p class="text-lg font-bold text-red-300">HARI INI: <span id="current-date" class="text-amber-400"></span></p>
             </div>
 
             <div class="text-center mb-10">
@@ -88,19 +88,74 @@
     </div>
 
     <script>
+        // ============================================
+        // 🎨 CENTRALIZED BRANDING & LINKS - UPDATE HERE ONLY!
+        // ============================================
+        // Semua branding dan link CTA akan menggunakan data dari sini.
+        // Cukup update sekali di bawah ini untuk mengubah seluruh website.
+
+        const ASSETS = {
+            // 🔗 Links
+            linkUtama: "https://t.ly/Yae-P7",        // 👈 UPDATE LINK UTAMA DI SINI (4 CTAs ke main site)
+            linkRtpPage: "../",                       // 👈 UPDATE LINK RTP PAGE DI SINI (1 CTA back to main)
+
+            // 🏷️ Branding
+            siteName: "PEGASUSPLAY77",               // 👈 UPDATE NAMA WEBSITE DI SINI
+            siteTitle: "PEGASUSPLAY77 | Prediksi Togel Akurat Terbaru Hari Ini",  // 👈 UPDATE TITLE TAB BROWSER
+            logoUrl: "https://cdn.databerjalan.com/cdn-cgi/image/width=auto,quality=75,fit=contain,format=auto/assets/images/store/2022-04-27T10:40:58.909Z_Untitled6.gif",  // 👈 UPDATE LOGO DI SINI
+            faviconUrl: "https://cdn.databerjalan.com/assets/images/companies/pegasusplay77/pegasusplay77-favicon.png"  // 👈 UPDATE FAVICON DI SINI
+        };
+
+        // ============================================
+        // Update all branding and CTA links from centralized ASSETS
+        // ============================================
+        const updateAllBranding = () => {
+            // Update browser tab title
+            document.title = ASSETS.siteTitle;
+
+            // Update favicon
+            const favicon = document.querySelector('link[rel="icon"]');
+            if (favicon) {
+                favicon.href = ASSETS.faviconUrl;
+            }
+
+            // Update main logo
+            const logo = document.querySelector('header img[alt]');
+            if (logo) {
+                logo.src = ASSETS.logoUrl;
+                logo.alt = ASSETS.siteName;
+            }
+
+            // Update all main CTA links
+            document.querySelectorAll('a[href="https://t.ly/Yae-P7"]').forEach(link => {
+                link.href = ASSETS.linkUtama;
+            });
+
+            // Update RTP page link
+            document.querySelectorAll('a[href="../"]').forEach(link => {
+                link.href = ASSETS.linkRtpPage;
+            });
+
+            console.log('✅ All branding & CTA links updated from ASSETS configuration');
+            console.log(`   📝 Site: ${ASSETS.siteName}`);
+            console.log(`   🔗 Main Link: ${ASSETS.linkUtama}`);
+            console.log(`   🎰 RTP Page: ${ASSETS.linkRtpPage}`);
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
+            updateAllBranding();
 
             const today = new Date();
             const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('current-date').textContent = today.toLocaleDateString('id-ID', dateOptions).toUpperCase();
 
             loadPredictions();
-            
+
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
 
-            setInterval(loadPredictions, 3600000); 
+            setInterval(loadPredictions, 3600000);
         });
 
 
@@ -236,40 +291,40 @@
                             </div>
                         ` : `
                             <div class="text-center mb-6">
-                                <p class="text-sm font-bold text-purple-300 mb-2">ANGKA JITU 4D (BB)</p>
+                                <p class="text-sm font-bold text-red-300 mb-2">ANGKA JITU 4D (BB)</p>
                                 <p class="text-6xl font-black text-amber-400 tracking-[0.3em] angka-jitu">${predictionData.angkaJitu4D}</p>
                             </div>
 
                             <div class="mb-6">
-                                <p class="text-xs font-bold text-purple-300 mb-1 text-center">SHIO KUAT HARI INI</p>
+                                <p class="text-xs font-bold text-red-300 mb-1 text-center">SHIO KUAT HARI INI</p>
                                 <div class="shio-box">${predictionData.shioKuat}</div>
                             </div>
 
                             <div class="grid grid-cols-2 gap-4 mb-6">
                                 <div>
-                                    <p class="text-xs font-bold text-purple-300 mb-1 text-center">COLOK BEBAS</p>
+                                    <p class="text-xs font-bold text-red-300 mb-1 text-center">COLOK BEBAS</p>
                                     <div class="prediction-box">${predictionData.colokBebas}</div>
                                 </div>
                                 <div>
-                                    <p class="text-xs font-bold text-purple-300 mb-1 text-center">DASAR</p>
+                                    <p class="text-xs font-bold text-red-300 mb-1 text-center">DASAR</p>
                                     <div class="prediction-box">${predictionData.dasar}</div>
                                 </div>
                             </div>
 
                             <div class="mb-6">
-                                <p class="text-xs font-bold text-purple-300 mb-1 text-center">BBFS (BOLAK BALIK FULL SET)</p>
+                                <p class="text-xs font-bold text-red-300 mb-1 text-center">BBFS (BOLAK BALIK FULL SET)</p>
                                 <div class="prediction-box text-lg tracking-wider">${predictionData.bbfs}</div>
                             </div>
 
                             <div class="mb-6">
-                                <p class="text-xs font-bold text-purple-300 mb-2 text-center">TOP 2D BOLAK BALIK</p>
+                                <p class="text-xs font-bold text-red-300 mb-2 text-center">TOP 2D BOLAK BALIK</p>
                                 <div class="grid grid-cols-4 gap-2">
                                     ${predictionData.top2D.map(num => `<div class="prediction-box text-sm">${num}</div>`).join('')}
                                 </div>
                             </div>
 
                             <div class="mb-6">
-                                <p class="text-xs font-bold text-purple-300 mb-2 text-center">TOP 3D BOLAK BALIK</p>
+                                <p class="text-xs font-bold text-red-300 mb-2 text-center">TOP 3D BOLAK BALIK</p>
                                 <div class="grid grid-cols-3 gap-2">
                                     ${predictionData.top3D.map(num => `<div class="prediction-box text-sm">${num}</div>`).join('')}
                                 </div>

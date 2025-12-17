@@ -3384,14 +3384,27 @@ const RAW_HTML_GGSOFTSLOT = `
 ];
 
         // ============================================
-        // 🔗 CENTRALIZED LINKS - UPDATE HERE ONLY!
+        // 🎨 CENTRALIZED BRANDING & LINKS - UPDATE HERE ONLY!
         // ============================================
-        // Semua CTA button akan menggunakan link dari sini.
-        // Cukup update sekali di bawah ini untuk mengubah semua link di website.
+        // Semua branding dan link CTA akan menggunakan data dari sini.
+        // Cukup update sekali di bawah ini untuk mengubah seluruh website.
 
         const ASSETS = {
-            linkUtama: "https://t.ly/Yae-P7",        // 👈 UPDATE LINK UTAMA DI SINI
+            // 🔗 Links
+            linkUtama: "https://t.ly/Yae-P7",        // 👈 UPDATE LINK UTAMA DI SINI (3,000+ CTAs)
             linkLivechat: "https://t.ly/PG77_LC",    // 👈 UPDATE LINK LIVECHAT DI SINI
+
+            // 🏷️ Branding
+            siteName: "PEGASUSPLAY77",               // 👈 UPDATE NAMA WEBSITE DI SINI
+            siteTitle: "PEGASUSPLAY77 | Sumber Slot RTP Nomor 1 Indonesia Maju",  // 👈 UPDATE TITLE TAB BROWSER
+            logoUrl: "https://cdn.databerjalan.com/cdn-cgi/image/width=auto,quality=75,fit=contain,format=auto/assets/images/store/2022-04-27T10:40:58.909Z_Untitled6.gif",  // 👈 UPDATE LOGO DI SINI
+            faviconUrl: "https://cdn.databerjalan.com/assets/images/companies/pegasusplay77/pegasusplay77-favicon.png",  // 👈 UPDATE FAVICON DI SINI
+
+            // 📢 Marquee Text (Text Berjalan)
+            marqueeText1: "✨ LIVE RTP PEGASUSPLAY77 HARI INI ✨ RAIH MAXWIN BESAR ✨ DEPOSIT QRIS INSTAN ✨",  // 👈 UPDATE MARQUEE 1
+            marqueeText2: "✨ CARI DI GOOGLE : PEGASUSPLAY77 ✨ JACKPOT MENANTI ANDA ✨ QRIS LANGSUNG MASUK ✨",  // 👈 UPDATE MARQUEE 2
+
+            // 🎴 Banners
             banners: [
                 "https://cdn.databerjalan.com/cdn-cgi/image/width=auto,quality=75,fit=contain,format=auto/assets/images/store/2025-06-10T09:46:11.689Z_photo_6215068070066637463_y.jpg",
                 "https://cdn.databerjalan.com/cdn-cgi/image/width=auto,quality=75,fit=contain,format=auto/assets/images/store/2023-12-07T12:03:25.681Z_LUCKYSPIN_HP.jpg",
@@ -3691,9 +3704,34 @@ allGames['5gslot'] = parseHTMLToGames(RAW_HTML_5GSLOT, '5gslot');
 allGames['ggsoftslot'] = parseHTMLToGames(RAW_HTML_GGSOFTSLOT, 'ggsoftslot');
 
             // ============================================
-            // Update all CTA links from centralized ASSETS
+            // Update all branding and CTA links from centralized ASSETS
             // ============================================
-            const updateAllLinks = () => {
+            const updateAllBranding = () => {
+                // Update browser tab title
+                document.title = ASSETS.siteTitle;
+
+                // Update favicon
+                const favicon = document.querySelector('link[rel="icon"]');
+                if (favicon) {
+                    favicon.href = ASSETS.faviconUrl;
+                }
+
+                // Update main logo
+                const logo = document.querySelector('header img[alt]');
+                if (logo) {
+                    logo.src = ASSETS.logoUrl;
+                    logo.alt = ASSETS.siteName;
+                }
+
+                // Update marquee text
+                const marqueeContainer = document.querySelector('.animate-marquee');
+                if (marqueeContainer) {
+                    marqueeContainer.innerHTML = `
+                        <span>${ASSETS.marqueeText1}</span>
+                        <span>${ASSETS.marqueeText2}</span>
+                    `;
+                }
+
                 // Update all main CTA links (header, mobile menu, floating buttons)
                 document.querySelectorAll('a[href="https://t.ly/Yae-P7"]').forEach(link => {
                     link.href = ASSETS.linkUtama;
@@ -3704,10 +3742,13 @@ allGames['ggsoftslot'] = parseHTMLToGames(RAW_HTML_GGSOFTSLOT, 'ggsoftslot');
                     link.href = ASSETS.linkLivechat;
                 });
 
-                console.log('✅ All CTA links updated from ASSETS configuration');
+                console.log('✅ All branding & CTA links updated from ASSETS configuration');
+                console.log(`   📝 Site: ${ASSETS.siteName}`);
+                console.log(`   🔗 Main Link: ${ASSETS.linkUtama}`);
+                console.log(`   💬 Livechat: ${ASSETS.linkLivechat}`);
             };
 
-            updateAllLinks();
+            updateAllBranding();
 
             setupBannerSlider();
 
