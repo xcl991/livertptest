@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="https://cdn.databerjalan.com/assets/images/companies/pegasusplay77/pegasusplay77-favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets-config.js"></script>
     <style>
         /* Background Utama: Gradasi Merah Gelap */
         body {
@@ -89,29 +90,17 @@
 
     <script>
         // ============================================
-        // 🎨 CENTRALIZED BRANDING & LINKS - UPDATE HERE ONLY!
+        // 🎨 ASSETS Configuration loaded from ../assets-config.js
         // ============================================
-        // Semua branding dan link CTA akan menggunakan data dari sini.
-        // Cukup update sekali di bawah ini untuk mengubah seluruh website.
-
-        const ASSETS = {
-            // 🔗 Links
-            linkUtama: "https://t.ly/Yae-P7",        // 👈 UPDATE LINK UTAMA DI SINI (4 CTAs ke main site)
-            linkRtpPage: "../",                       // 👈 UPDATE LINK RTP PAGE DI SINI (1 CTA back to main)
-
-            // 🏷️ Branding
-            siteName: "PEGASUSPLAY77",               // 👈 UPDATE NAMA WEBSITE DI SINI
-            siteTitle: "PEGASUSPLAY77 | Prediksi Togel Akurat Terbaru Hari Ini",  // 👈 UPDATE TITLE TAB BROWSER
-            logoUrl: "https://cdn.databerjalan.com/cdn-cgi/image/width=auto,quality=75,fit=contain,format=auto/assets/images/store/2022-04-27T10:40:58.909Z_Untitled6.gif",  // 👈 UPDATE LOGO DI SINI
-            faviconUrl: "https://cdn.databerjalan.com/assets/images/companies/pegasusplay77/pegasusplay77-favicon.png"  // 👈 UPDATE FAVICON DI SINI
-        };
+        // PENTING: Untuk update branding & links, edit file: ../assets-config.js
+        // JANGAN edit di sini! Semua konfigurasi ada di assets-config.js
 
         // ============================================
         // Update all branding and CTA links from centralized ASSETS
         // ============================================
         const updateAllBranding = () => {
-            // Update browser tab title
-            document.title = ASSETS.siteTitle;
+            // Update browser tab title (use togel-specific title)
+            document.title = ASSETS.siteTitle_Togel;
 
             // Update favicon
             const favicon = document.querySelector('link[rel="icon"]');
